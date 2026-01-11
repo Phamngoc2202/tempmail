@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TempMail</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>🕐 TempMail</h1>
+    <p>Tạo & dùng email tạm thời</p>
+  </header>
+
+  <!-- ACTIONS -->
+  <section class="actions">
+    <button id="btnRandom" class="btn btn-secondary">🎲 Random Email</button>
+  </section>
+
+  <!-- CUSTOM EMAIL -->
+  <section class="section">
+    <h3>✍️ Tạo email tuỳ chỉnh</h3>
+
+    <div class="form-row">
+      <input
+        id="prefixInput"
+        placeholder="Username (vd: test123)"
+        maxlength="20"
+      >
+
+      <label for="domainsSelect" class="sr-only">Domain</label>
+      <select id="domainsSelect" aria-label="Chọn domain"></select>
+
+      <button id="btnCreate" class="btn btn-success">✅ Tạo</button>
+    </div>
+  </section>
+
+  <!-- CURRENT EMAIL -->
+  <section id="emailSection" class="section hidden">
+    <h3>📧 Email hiện tại</h3>
+
+    <div class="email-display">
+      <code id="currentEmail"></code>
+
+      <div class="email-actions">
+        <button id="btnCopy" class="btn btn-outline">📋 Copy</button>
+        <button id="btnRefresh" class="btn btn-info">🔄 Refresh</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INBOX -->
+  <section class="section">
+    <h3>📬 Inbox</h3>
+    <div id="mails" class="empty-state">📭 Chưa có email</div>
+  </section>
+</div>
+
+<div id="toast" class="toast hidden">📋 Đã sao chép email</div>
+
+<script src="script.js"></script>
+</body>
+</html>

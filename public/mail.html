@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mail</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button onclick="history.back()" class="btn btn-outline">⬅ Quay lại</button>
+
+<div id="mailDetail" class="box">Đang tải...</div>
+
+<script>
+const id = new URLSearchParams(location.search).get('id');
+
+fetch('/api/mail/' + id)
+  .then(r => r.json())
+  .then(m => {
+    document.getElementById('mailDetail').innerHTML = `
+      <h2>${m.subject || ''}</h2>
+      <p><b>From:</b> ${m.fromAddress}</p>
+      <p><b>To:</b> ${m.toAddress}</p>
+      <hr>
+      ${m.htmlContent || '<i>Không có nội dung</i>'}
+    `;
+  });
+</script>
+
+</body>
+</html>
